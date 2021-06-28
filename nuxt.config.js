@@ -45,8 +45,19 @@ export default {
     '@nuxtjs/axios',
   ],
 
+  env: {
+    tmdbBaseURL: process.env.TMDB_BASE_URL,
+    tmdbAPIKey: process.env.TMDB_API_KEY
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.TMDB_BASE_URL,
+    headers: {
+      common: {
+      }
+    }
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
