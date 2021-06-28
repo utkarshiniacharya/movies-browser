@@ -1,18 +1,18 @@
 <template>
   <div>
-    <Movies-Carousel />
+    <BackdropCarousel />
     <MovieCard />
   </div>
 </template>
 
 <script>
 import MovieCard from "~/components/MovieCard";
-import MoviesCarousel from '~/components/MoviesCarousel';
+import BackdropCarousel from "~/components/BackdropCarousel";
 
 export default {
   components: {
     MovieCard,
-    MoviesCarousel
+    BackdropCarousel
   },
   created() {
     // this.$axios
