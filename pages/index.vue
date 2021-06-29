@@ -1,7 +1,7 @@
 <template>
   <div>
-    <BackdropCarousel />
-    <MovieCard />
+    <backdrop-carousel />
+    <movie-card />
   </div>
 </template>
 
