@@ -8,14 +8,14 @@
     </v-toolbar-title>
     <v-spacer />
     <v-toolbar-items>
-        <v-text-field
-          class="search-bar"
-          label="Regular"
-          color="white"
-          :dense="true"
-        >
-        </v-text-field>
-      </v-toolbar-items>
+      <v-text-field
+        class="search-bar"
+        label="Search by name"
+        :dark="true"
+        flat
+        solo
+      />
+    </v-toolbar-items>
   </v-app-bar>
 </template>
 
@@ -26,6 +26,8 @@ export default {
 
 }
 </script>
-
 <style>
+.search-bar .v-input__control{
+  margin-top: 8px;
+}
 </style>
