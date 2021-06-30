@@ -9,6 +9,7 @@
     <v-spacer />
     <v-toolbar-items>
       <v-text-field
+        append-icon="mdi-magnify"
         class="search-bar"
         label="Search by name"
         :dark="true"
