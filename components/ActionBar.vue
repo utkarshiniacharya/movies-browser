@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     :fixed="true"
-    color="rgba(0, 0, 0, 0.5)"
+    color="rgba(0, 0, 0, 0.3)"
   >
     <v-toolbar-title>
       <logo />

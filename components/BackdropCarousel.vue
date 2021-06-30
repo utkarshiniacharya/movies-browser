@@ -22,7 +22,8 @@ export default {
   data() {
     return {
       model: 0,
-      colors: ['priary', 'secondary','red', 'orange', 'yellow']
+      colors: ['red'],
+      trendingMedia: []
     }
   }
 };
