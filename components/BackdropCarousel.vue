@@ -61,19 +61,12 @@ export default {
   align-items: flex-start;
   padding: 4rem 0 0 2rem;
 }
-.trending-heading {
-  color: white;
-}
 .backdrop-name {
-  color: white;
   font-weight: 900;
   font-size: 3.5rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.backdrop-rating {
-  color: white;
 }
 .view-btn {
   background-color: white;
