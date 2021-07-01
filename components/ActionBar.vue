@@ -1,7 +1,8 @@
 <template>
   <v-app-bar
     :fixed="true"
-    color="rgba(0, 0, 0, 0.3)"
+    color="rgba(0, 0, 0, 0.4)"
+    class="action-bar"
   >
     <v-toolbar-title>
       <logo />
@@ -30,5 +31,9 @@ export default {
 <style>
 .search-bar .v-input__control{
   margin-top: 8px;
+}
+.action-bar {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 </style>
