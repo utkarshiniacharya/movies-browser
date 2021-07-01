@@ -1,7 +1,10 @@
 <template>
   <div>
     <backdrop-carousel />
-    <type-heading />
+    <type-heading text="Upcoming" />
+    <type-heading text="Popular" />
+    <type-heading text="Now Playing" />
+    <type-heading text="Top Rated" />
     <movie-card />
   </div>
 </template>

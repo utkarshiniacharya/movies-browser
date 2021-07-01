@@ -1,7 +1,7 @@
 <template>
   <div class="heading-type">
       <h1 class="heading-name">
-          Upcoming
+          {{ text }}
       </h1>
       <div class="name-stroke" />
   </div>
@@ -9,7 +9,13 @@
 
 <script>
 export default {
-
+  props: {
+    text: {
+      type: String,
+      required: true,
+      default: 'Heading'
+    }
+  }
 }
 </script>
 <style scoped>
