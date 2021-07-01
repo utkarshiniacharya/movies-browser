@@ -1,18 +1,21 @@
 <template>
   <div>
     <backdrop-carousel />
+    <type-heading />
     <movie-card />
   </div>
 </template>
 
 <script>
-import MovieCard from "~/components/MovieCard";
-import BackdropCarousel from "~/components/BackdropCarousel";
+import MovieCard from '~/components/MovieCard';
+import BackdropCarousel from '~/components/BackdropCarousel';
+import TypeHeading from '~/components/TypeHeading.vue';
 
 export default {
   components: {
     MovieCard,
-    BackdropCarousel
+    BackdropCarousel,
+    TypeHeading
   },
   created() {
     // this.$axios
