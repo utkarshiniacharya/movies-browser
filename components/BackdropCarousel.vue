@@ -55,10 +55,14 @@ export default {
 .backdrop-overlay {
   background-image: linear-gradient(to right, black, transparent, transparent);
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem 0 0 2rem;
 }
 .trending-heading {
   color: white;
-  text-transform: uppercase;
 }
 .backdrop-name {
   color: white;
@@ -84,6 +88,9 @@ export default {
   }
   .backdrop-overlay {
     height: unset;
+  }
+  .trending-heading {
+    font-size: 1rem;
   }
   .backdrop-name {
     font-size: 2rem;
