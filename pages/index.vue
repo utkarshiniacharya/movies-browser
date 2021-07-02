@@ -33,6 +33,8 @@ export default {
     this.fetchPopularMedia({ mediaType: mediaTypes.tv });
     this.fetchTopRatedMedia({ mediaType: mediaTypes.movie });
     this.fetchTopRatedMedia({ mediaType: mediaTypes.tv });
+    this.fetchNowPlayingMedia({ mediaType: mediaTypes.movie });
+    this.fetchNowPlayingMedia({ mediaType: mediaTypes.tv });
   }
 };
 </script>
