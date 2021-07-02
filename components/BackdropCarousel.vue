@@ -9,12 +9,12 @@
       :show-arrows=false
       v-if="mediaTypeSelected == mediaTypes.movie"
     >
-      <v-carousel-item v-for="(color) in colors" :key="color">
-        <img src="https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" class="backdrop">
+      <v-carousel-item v-for="movie in trendingMovies" :key="movie.id">
+        <img :src="`https://image.tmdb.org/t/p/original${movie.backdrop_path}`" alt="" class="backdrop">
         <div class="backdrop-overlay">
           <h2 class="trending-heading">Trending</h2>
-          <h1 class="backdrop-name">Movie Name</h1>
-          <p class="backdrop-rating">5 / 10</p>
+          <h1 class="backdrop-name">{{ movie.original_title }}</h1>
+          <p class="backdrop-rating">{{ movie.vote_average }} / 10</p>
           <button class="view-btn">
             View More
           </button>
@@ -26,7 +26,7 @@
 
 <script>
 import { mediaTypes } from '~/constants/mediaTypes';
-import {mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   data() {
@@ -38,7 +38,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['mediaTypeSelected'])
+    ...mapGetters(['mediaTypeSelected', 'trendingMovies'])
   }
 };
 </script>

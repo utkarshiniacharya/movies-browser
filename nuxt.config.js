@@ -56,8 +56,7 @@ export default {
 
   env: {
     tmdbBaseURL: process.env.TMDB_BASE_URL,
-    tmdbAPIKey: process.env.TMDB_API_KEY,
-    tmdbBackdropUrl: process.env.TMDB_BACKDROP_URL
+    tmdbAPIKey: process.env.TMDB_API_KEY
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
