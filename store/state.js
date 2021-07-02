@@ -2,7 +2,7 @@ import { mediaTypes } from '~/constants/mediaTypes';
 
 export default function() {
     return {
-        mediaTypeSelected: mediaTypes.movie,
+        mediaTypeSelected: mediaTypes.tv,
         trendingMovies: [],
         trendingTVShows: []
     };

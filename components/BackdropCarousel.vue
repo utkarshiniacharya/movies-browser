@@ -21,6 +21,27 @@
         </div>
       </v-carousel-item>
     </v-carousel>
+    <v-carousel
+      v-model="model"
+      :hide-delimiters=true
+      :cycle=true
+      interval="3000"
+      height="100vh"
+      :show-arrows=false
+      v-else
+    >
+      <v-carousel-item v-for="tvshow in trendingTVShows" :key="tvshow.id">
+        <img :src="`https://image.tmdb.org/t/p/original${tvshow.backdrop_path}`" alt="" class="backdrop">
+        <div class="backdrop-overlay">
+          <h2 class="trending-heading">Trending</h2>
+          <h1 class="backdrop-name">{{ tvshow.original_name }}</h1>
+          <p class="backdrop-rating">{{ tvshow.vote_average }} / 10</p>
+          <button class="view-btn">
+            View More
+          </button>
+        </div>
+      </v-carousel-item>
+    </v-carousel>
   </div>
 </template>
 
@@ -38,7 +59,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['mediaTypeSelected', 'trendingMovies'])
+    ...mapGetters(['mediaTypeSelected', 'trendingMovies', 'trendingTVShows'])
   }
 };
 </script>
@@ -86,12 +107,13 @@ export default {
     font-size: 1rem;
   }
   .backdrop-name {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .view-btn {
     padding: 0.3rem 1.5rem;
     font-weight: 800;
     letter-spacing: 1px;
+    font-size: 0.8rem;
   }
 }
 </style>
