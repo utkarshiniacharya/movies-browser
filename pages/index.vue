@@ -23,11 +23,16 @@ export default {
     TypeHeading
   },
   methods: {
-    ...mapActions(['fetchTrendingMedia'])
+    ...mapActions(['fetchTrendingMedia', 'fetchUpcomingMedia', 'fetchPopularMedia', 'fetchNowPlayingMedia', 'fetchTopRatedMedia'])
   },
   created() {
     this.fetchTrendingMedia({ mediaType: mediaTypes.movie });
     this.fetchTrendingMedia({ mediaType: mediaTypes.tv });
+    this.fetchUpcomingMedia({ mediaType: mediaTypes.movie });
+    this.fetchPopularMedia({ mediaType: mediaTypes.movie });
+    this.fetchPopularMedia({ mediaType: mediaTypes.tv });
+    this.fetchTopRatedMedia({ mediaType: mediaTypes.movie });
+    this.fetchTopRatedMedia({ mediaType: mediaTypes.tv });
   }
 };
 </script>

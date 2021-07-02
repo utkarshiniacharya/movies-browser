@@ -4,6 +4,13 @@ export default function() {
     return {
         mediaTypeSelected: mediaTypes.tv,
         trendingMovies: [],
-        trendingTVShows: []
+        trendingTVShows: [],
+        upcomingMovies: [],
+        popularMovies: [],
+        popularTVShows: [],
+        nowPlayingMovies: [],
+        nowPlayingTVShows: [],
+        topRatedMovies: [],
+        topRatedTVShows: []
     };
 };
