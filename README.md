@@ -19,7 +19,6 @@ Create a `.env` file in the root directory of the project with the following val
 ```dosini
 TMDB_BASE_URL=
 TMDB_API_KEY=
-TMDB_BACKDROP_URL=
 ```
 
 The application is good to go!
