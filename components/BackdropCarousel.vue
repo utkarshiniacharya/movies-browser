@@ -4,7 +4,7 @@
       v-model="model"
       :hide-delimiters=true
       :cycle=true
-      interval="3000"
+      interval="4000"
       height="100vh"
       :show-arrows=false
       v-if="mediaTypeSelected == mediaTypes.movie"
@@ -25,7 +25,7 @@
       v-model="model"
       :hide-delimiters=true
       :cycle=true
-      interval="3000"
+      interval="4000"
       height="100vh"
       :show-arrows=false
       v-else
