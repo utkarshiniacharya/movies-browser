@@ -13,6 +13,8 @@
 import MovieCard from '~/components/MovieCard';
 import BackdropCarousel from '~/components/BackdropCarousel';
 import TypeHeading from '~/components/TypeHeading.vue';
+import { mapActions } from 'vuex';
+import { mediaTypes } from '~/constants/mediaTypes';
 
 export default {
   components: {
@@ -20,11 +22,12 @@ export default {
     BackdropCarousel,
     TypeHeading
   },
+  methods: {
+    ...mapActions(['fetchTrendingMedia'])
+  },
   created() {
-    // this.$axios
-    //   .get("/3/movie/123?api_key=" + process.env.tmdbAPIKey)
-    //   .then(res => console.log(res.data))
-    //   .catch(err => console.log(err));
+    this.fetchTrendingMedia({ mediaType: mediaTypes.movie });
+    this.fetchTrendingMedia({ mediaType: mediaTypes.tv });
   }
 };
 </script>
