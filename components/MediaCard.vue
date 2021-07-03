@@ -27,7 +27,7 @@ export default {
 <style scoped>
 .card {
     margin: 0.5rem;
-    width: 200px;
+    width: 170px;
 }
 .poster {
     border-radius: 5%;
@@ -36,5 +36,11 @@ export default {
     z-index: -1;
     object-fit: cover;
 }
-
+.media-name {
+  font-weight: 600;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 </style>

@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div class="media-carousel">
+    <v-btn fab>
+      <v-icon>mdi-chevron-left</v-icon>
+    </v-btn>
     <div class="container" v-if="mediaTypeSelected == mediaTypes.movie">
       <div class="media-card" v-for="media in mediaList" :key="media.id">
         <media-card :card-title="media.original_title" :poster-path="media.poster_path" />
@@ -10,6 +13,9 @@
         <media-card :card-title="media.original_name" :poster-path="media.poster_path" />
       </div>
     </div>
+    <v-btn fab>
+      <v-icon>mdi-chevron-right</v-icon>
+    </v-btn>
   </div>
 </template>
 
@@ -39,8 +45,14 @@ export default {
 </script>
 
 <style scoped>
+.media-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container {
   display: flex;
+  margin: 2rem 1rem;
   overflow-x: auto;
 }
 .container::-webkit-scrollbar {
