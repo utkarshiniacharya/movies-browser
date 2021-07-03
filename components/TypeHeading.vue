@@ -4,11 +4,16 @@
           {{ text }}
       </h1>
       <div class="name-stroke" />
+      <v-spacer />
+      <media-carousel />
   </div>
 </template>
 
 <script>
+import MediaCarousel from './MediaCarousel.vue';
+
 export default {
+  components: { MediaCarousel },
   props: {
     text: {
       type: String,
