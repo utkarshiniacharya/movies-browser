@@ -1,19 +1,19 @@
 <template>
   <div class="media-carousel">
-    <v-btn fab>
+    <v-btn fab @click="handleScroll('left')">
       <v-icon>mdi-chevron-left</v-icon>
     </v-btn>
-    <div class="container" v-if="mediaTypeSelected == mediaTypes.movie">
+    <div class="container" v-if="mediaTypeSelected == mediaTypes.movie" :id="carouselId">
       <div class="media-card" v-for="media in mediaList" :key="media.id">
         <media-card :card-title="media.original_title" :poster-path="media.poster_path" />
       </div>
     </div>
-    <div class="container" v-else>
+    <div class="container" v-else :id="carouselId">
       <div class="media-card" v-for="media in mediaList" :key="media.id">
         <media-card :card-title="media.original_name" :poster-path="media.poster_path" />
       </div>
     </div>
-    <v-btn fab>
+    <v-btn fab @click="handleScroll('right')">
       <v-icon>mdi-chevron-right</v-icon>
     </v-btn>
   </div>
@@ -35,6 +35,21 @@ export default {
       type: Array,
       required: true,
       default: []
+    },
+    carouselId: {
+      type: String,
+      required: true,
+      default: ''
+    }
+  },
+  methods: {
+    handleScroll(direction) {
+      if(direction === 'left') {
+        document.getElementById(this.carouselId).scrollLeft -= 300;
+      }
+      else if(direction === 'right') {
+        document.getElementById(this.carouselId).scrollLeft += 300;
+      }
     }
   },
   components: { MediaCard },

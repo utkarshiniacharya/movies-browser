@@ -2,43 +2,43 @@
   <div>
     <backdrop-carousel />
     <carousel-heading
-      id="carousel1"
+      carouselId="carousel1"
       v-if="mediaTypeSelected == mediaTypes.movie"
       text="Upcoming"
       :mediaList="upcomingMovies"
     />
     <carousel-heading
-      id="carousel2"
+      carouselId="carousel2"
       v-if="mediaTypeSelected == mediaTypes.movie"
       text="Popular"
       :mediaList="popularMovies"
     />
     <carousel-heading
-      id="carousel3"
+      carouselId="carousel3"
       v-else
       text="Popular"
       :mediaList="popularTVShows"
     />
     <carousel-heading
-      id="carousel4"
+      carouselId="carousel4"
       v-if="mediaTypeSelected == mediaTypes.movie"
       text="Now Playing"
       :mediaList="nowPlayingMovies"
     />
     <carousel-heading
-      id="carousel5"
+      carouselId="carousel5"
       v-else
       text="Now Playing"
       :mediaList="nowPlayingTVShows"
     />
     <carousel-heading
-      id="carousel6"
+      carouselId="carousel6"
       v-if="mediaTypeSelected == mediaTypes.movie"
       text="Top Rated"
       :mediaList="topRatedMovies"
     />
     <carousel-heading
-      id="carousel7"
+      carouselId="carousel7"
       v-else
       text="Top Rated"
       :mediaList="topRatedTVShows"

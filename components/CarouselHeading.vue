@@ -5,7 +5,7 @@
       </h1>
       <div class="name-stroke" />
       <v-spacer />
-      <media-carousel :media-list="mediaList"/>
+      <media-carousel :media-list="mediaList" :carouselId="carouselId" />
   </div>
 </template>
 
@@ -23,6 +23,11 @@ export default {
       type: Array,
       required: true,
       default: []
+    },
+    carouselId: {
+      type: String,
+      required: true,
+      default: ''
     }
   },
   components: { MediaCarousel }
