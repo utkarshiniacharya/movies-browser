@@ -49,11 +49,14 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 90%;
+  margin: auto;
 }
 .container {
   display: flex;
   margin: 2rem 1rem;
   overflow-x: auto;
+  max-width: 100%;
 }
 .container::-webkit-scrollbar {
     display: none;
