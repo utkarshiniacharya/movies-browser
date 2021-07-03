@@ -5,22 +5,27 @@
       </h1>
       <div class="name-stroke" />
       <v-spacer />
-      <media-carousel />
+      <media-carousel :media-list="mediaList"/>
   </div>
 </template>
 
 <script>
-import MediaCarousel from './MediaCarousel.vue';
+import MediaCarousel from './MediaCarousel';
 
 export default {
-  components: { MediaCarousel },
   props: {
     text: {
       type: String,
       required: true,
       default: 'Heading'
+    },
+    mediaList: {
+      type: Array,
+      required: true,
+      default: []
     }
-  }
+  },
+  components: { MediaCarousel }
 }
 </script>
 <style scoped>

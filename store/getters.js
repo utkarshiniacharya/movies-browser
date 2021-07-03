@@ -7,6 +7,6 @@ export default {
     popularTVShows: state => state.popularTVShows,
     nowPlayingMovies: state => state.nowPlayingMovies,
     nowPlayingTVShows: state => state.nowPlayingTVShows,
-    topRatedMovies: state => state.trendingMovies,
-    topRatedTVShows: state => state.trendingTVShows
+    topRatedMovies: state => state.topRatedMovies,
+    topRatedTVShows: state => state.topRatedTVShows
 };

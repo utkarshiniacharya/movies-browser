@@ -1,0 +1,40 @@
+<template>
+    <div class="card">
+        <img :src="`https://image.tmdb.org/t/p/original${posterPath}`" alt="No image available." class="poster">
+        <h3 class="media-name">{{ cardTitle}}</h3>
+        <p class="release-date">19-06-2018</p>
+    </div>
+</template>
+
+<script>
+export default {
+  props: {
+    cardTitle: {
+      type: String,
+      required: true,
+      default: 'Title'
+    },
+    posterPath: {
+      type: String,
+      required: true,
+      default: ''
+    }
+  }
+}
+</script>
+
+
+<style scoped>
+.card {
+    margin: 0.5rem;
+    width: 200px;
+}
+.poster {
+    border-radius: 5%;
+    height: 250px;
+    width: 170px;
+    z-index: -1;
+    object-fit: cover;
+}
+
+</style>

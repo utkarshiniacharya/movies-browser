@@ -53,8 +53,6 @@ export default {
   data() {
     return {
       model: 0,
-      colors: ['red', 'green'],
-      trendingMedia: [],
       mediaTypes: mediaTypes
     }
   },

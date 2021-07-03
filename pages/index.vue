@@ -1,23 +1,59 @@
 <template>
   <div>
     <backdrop-carousel />
-    <type-heading text="Upcoming" />
-    <type-heading text="Popular" />
-    <type-heading text="Now Playing" />
-    <type-heading text="Top Rated" />
+    <carousel-heading
+      v-if="mediaTypeSelected == mediaTypes.movie"
+      text="Upcoming"
+      :mediaList="upcomingMovies"
+    />
+    <carousel-heading
+      v-if="mediaTypeSelected == mediaTypes.movie"
+      text="Popular"
+      :mediaList="popularMovies"
+    />
+    <carousel-heading
+      v-else
+      text="Popular"
+      :mediaList="popularTVShows"
+    />
+    <carousel-heading
+      v-if="mediaTypeSelected == mediaTypes.movie"
+      text="Now Playing"
+      :mediaList="nowPlayingMovies"
+    />
+    <carousel-heading
+      v-else
+      text="Now Playing"
+      :mediaList="nowPlayingTVShows"
+    />
+    <carousel-heading
+      v-if="mediaTypeSelected == mediaTypes.movie"
+      text="Top Rated"
+      :mediaList="topRatedMovies"
+    />
+    <carousel-heading
+      v-else
+      text="Top Rated"
+      :mediaList="topRatedTVShows"
+    />
   </div>
 </template>
 
 <script>
 import BackdropCarousel from '~/components/BackdropCarousel';
-import TypeHeading from '~/components/TypeHeading.vue';
-import { mapActions } from 'vuex';
+import CarouselHeading from '~/components/CarouselHeading';
+import { mapGetters, mapActions } from 'vuex';
 import { mediaTypes } from '~/constants/mediaTypes';
 
 export default {
+  data() {
+    return {
+      mediaTypes: mediaTypes
+    }
+  },
   components: {
     BackdropCarousel,
-    TypeHeading
+    CarouselHeading
   },
   methods: {
     ...mapActions(['fetchTrendingMedia', 'fetchUpcomingMedia', 'fetchPopularMedia', 'fetchNowPlayingMedia', 'fetchTopRatedMedia'])
@@ -32,6 +68,9 @@ export default {
     this.fetchTopRatedMedia({ mediaType: mediaTypes.tv });
     this.fetchNowPlayingMedia({ mediaType: mediaTypes.movie });
     this.fetchNowPlayingMedia({ mediaType: mediaTypes.tv });
+  },
+  computed: {
+    ...mapGetters(['mediaTypeSelected', 'upcomingMovies', 'popularMovies', 'popularTVShows', 'nowPlayingMovies', 'nowPlayingTVShows', 'topRatedMovies', 'topRatedTVShows'])
   }
 };
 </script>
