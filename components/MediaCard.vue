@@ -1,6 +1,7 @@
 <template>
     <div class="card">
-        <img :src="`https://image.tmdb.org/t/p/original${posterPath}`" alt="No image available." class="poster">
+        <img :src="`https://image.tmdb.org/t/p/original${posterPath}`" alt="No image available." class="poster" v-if="posterPath !== null">
+        <div class="null-poster" v-else />
         <h3 class="media-name">{{ cardTitle}}</h3>
         <p class="release-date">{{ releaseDate }}</p>
     </div>
@@ -15,7 +16,6 @@ export default {
       default: 'Title'
     },
     posterPath: {
-      type: String,
       required: true,
       default: ''
     },
@@ -47,5 +47,12 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.null-poster {
+  border-radius: 5%;
+  height: 250px;
+  width: 170px;
+  background-color: gray;
+  opacity: 0.3;
 }
 </style>

@@ -66,9 +66,11 @@
             :dense="true"
           />
           <br />
-          <button class="view-btn">
-            View More
-          </button>
+          <NuxtLink :to="'/' + mediaTypes.tv + '/' + tvshow.id">
+            <button class="view-btn">
+              View More
+            </button>
+          </NuxtLink>
         </div>
       </v-carousel-item>
     </v-carousel>

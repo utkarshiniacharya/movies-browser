@@ -70,18 +70,14 @@ export default {
         return new Promise((resolve, reject) => {
             this.$axios.get("/3/" + this.$route.params.mediaType + "/" + this.$route.params.id + "?api_key=" + process.env.tmdbAPIKey + "&language=en-US&page=1")
                 .then(response => {
-                    if(this.$route.params.mediaType == this.mediaTypes.movie) {
-                        this.title = response.data.original_title;
-                        this.description = response.data.overview;
-                        for(var index in response.data.genres) {
-                          this.genres.push(response.data.genres[index].name);
-                        }
-                        this.rating = response.data.vote_average / 2;
-                        this.backDropURL = "https://image.tmdb.org/t/p/original" + response.data.backdrop_path;
+                    this.title = this.$route.params.mediaType == this.mediaTypes.movie ? response.data.original_title
+                      : response.data.original_name;
+                    this.description = response.data.overview;
+                    for(var index in response.data.genres) {
+                      this.genres.push(response.data.genres[index].name);
                     }
-                    else {
-
-                    }
+                    this.rating = response.data.vote_average / 2;
+                    this.backDropURL = "https://image.tmdb.org/t/p/original" + response.data.backdrop_path;
                     resolve(response.data)
                 })
                 .catch(error => {
