@@ -35,8 +35,12 @@
         :dense="true"
       />
     </div>
-    <div>
-      <p class="media-description">{{ description }}</p>
+    <div class="more-details">
+      <h1 class="heading-name">Summary</h1>
+      <div class="name-stroke" />
+      <span>
+        <p class="media-description">{{ description }}</p>
+      </span>
     </div>
   </div>
 </template>
@@ -68,7 +72,6 @@ export default {
                         }
                         this.rating = response.data.vote_average / 2;
                         this.backDropURL = "https://image.tmdb.org/t/p/original" + response.data.backdrop_path;
-                        this.posterPath = "https://image.tmdb.org/t/p/original" + response.data.poster_path;
                     }
                     else {
 
@@ -109,16 +112,28 @@ export default {
     flex-direction: column;
     justify-content: center;
     padding: 2rem 1rem 0 4rem;
+    margin-left: 2rem;
 }
 .media-title {
     font-weight: 900;
     font-size: 3.5rem;
 }
 .media-description {
-    max-width: 900px;
+    margin: 2rem 4rem;
 }
 .media-genres {
     font-weight: 600;
+}
+.more-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem 0;
+}
+.name-stroke {
+  background-color: white;
+  width: 2.5rem;
+  height: 5px;
 }
 @media only screen and (max-width: 960px) {
     .media-backdrop-overlay {
