@@ -1,6 +1,9 @@
 import { mediaTypes } from '~/constants/mediaTypes';
 
 export default {
+    changeSelectedMediaType(state, { mediaType }) {
+        state.mediaTypeSelected = mediaType;
+    },
     updateTrendingMedia(state, { data, mediaType }) {
         if(mediaType == mediaTypes.movie) {
             state.trendingMovies = data;

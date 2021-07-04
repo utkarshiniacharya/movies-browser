@@ -1,6 +1,9 @@
 import { mediaTypes } from "~/constants/mediaTypes";
 
 export default {
+    changeSelectedMediaType({ commit }, { mediaType }) {
+        commit("changeSelectedMediaType", { mediaType });
+    },
     fetchTrendingMedia({ commit }, { mediaType }) {
         return new Promise((resolve, reject) => {
             this.$axios.get("/3/trending/" + mediaType + "/week?api_key=" + process.env.tmdbAPIKey)
