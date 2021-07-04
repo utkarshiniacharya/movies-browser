@@ -1,6 +1,7 @@
 <template>
   <div>
     <backdrop-carousel />
+    <media-type-switch />
     <carousel-heading
       carouselId="carousel1"
       v-if="mediaTypeSelected == mediaTypes.movie"
@@ -51,6 +52,7 @@ import BackdropCarousel from '~/components/BackdropCarousel';
 import CarouselHeading from '~/components/CarouselHeading';
 import { mapGetters, mapActions } from 'vuex';
 import { mediaTypes } from '~/constants/mediaTypes';
+import MediaTypeSwitch from '~/components/MediaTypeSwitch.vue';
 
 export default {
   data() {
@@ -60,7 +62,8 @@ export default {
   },
   components: {
     BackdropCarousel,
-    CarouselHeading
+    CarouselHeading,
+    MediaTypeSwitch
   },
   methods: {
     ...mapActions(['fetchTrendingMedia', 'fetchUpcomingMedia', 'fetchPopularMedia', 'fetchNowPlayingMedia', 'fetchTopRatedMedia'])
