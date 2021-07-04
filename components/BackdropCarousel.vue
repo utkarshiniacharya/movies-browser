@@ -15,9 +15,11 @@
           <h2 class="trending-heading">Trending</h2>
           <h1 class="backdrop-name">{{ movie.original_title }}</h1>
           <p class="backdrop-rating">{{ movie.vote_average }} / 10</p>
-          <button class="view-btn">
-            View More
-          </button>
+          <NuxtLink :to="'/' + mediaTypes.movie + '/' + movie.id">
+            <button class="view-btn">
+              View More
+            </button>
+          </NuxtLink>
         </div>
       </v-carousel-item>
     </v-carousel>
