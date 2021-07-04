@@ -112,14 +112,15 @@ export default {
     flex-direction: column;
     justify-content: center;
     padding: 2rem 1rem 0 4rem;
-    margin-left: 2rem;
 }
 .media-title {
     font-weight: 900;
     font-size: 3.5rem;
 }
 .media-description {
-    margin: 2rem 4rem;
+    margin: 3rem 1rem;
+    max-width: 900px;
+    text-align: justify;
 }
 .media-genres {
     font-weight: 600;
