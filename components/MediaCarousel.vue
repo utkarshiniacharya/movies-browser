@@ -5,12 +5,24 @@
     </v-btn>
     <div class="container" v-if="mediaTypeSelected == mediaTypes.movie" :id="carouselId">
       <div class="media-card" v-for="media in mediaList" :key="media.id">
-        <media-card :card-title="media.original_title" :poster-path="media.poster_path" :release-date="media.release_date" />
+        <media-card
+          :card-title="media.original_title"
+          :poster-path="media.poster_path"
+          :release-date="media.release_date"
+          :mediaId="media.id"
+          :mediaType="mediaTypes.movie"
+        />
       </div>
     </div>
     <div class="container" v-else :id="carouselId">
       <div class="media-card" v-for="media in mediaList" :key="media.id">
-        <media-card :card-title="media.original_name" :poster-path="media.poster_path" :release-date="media.first_air_date" />
+        <media-card
+          :card-title="media.original_name"
+          :poster-path="media.poster_path"
+          :release-date="media.first_air_date"
+          :mediaId="media.id"
+          :mediaType="mediaTypes.tv"
+        />
       </div>
     </div>
     <v-btn fab @click="handleScroll('right')">

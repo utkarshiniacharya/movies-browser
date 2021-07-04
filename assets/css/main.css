@@ -2,6 +2,7 @@ html {
     scroll-behavior: smooth !important;
 }
 body {
+    color: white;
     font-family: 'Space Grotesk', sans-serif !important;
 }
 .v-application {

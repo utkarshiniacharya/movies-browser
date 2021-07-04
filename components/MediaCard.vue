@@ -1,10 +1,12 @@
 <template>
-    <div class="card">
-        <img :src="`https://image.tmdb.org/t/p/original${posterPath}`" alt="No image available." class="poster" v-if="posterPath !== null">
-        <div class="null-poster" v-else />
-        <h3 class="media-name">{{ cardTitle}}</h3>
-        <p class="release-date">{{ releaseDate }}</p>
-    </div>
+  <div class="card">
+    <NuxtLink :to="'/' + mediaType + '/' + mediaId">
+      <img :src="`https://image.tmdb.org/t/p/original${posterPath}`" alt="No image available." class="poster" v-if="posterPath !== null">
+      <div class="null-poster" v-else />
+    </NuxtLink>
+    <h3 class="media-name">{{ cardTitle}}</h3>
+    <p class="release-date">{{ releaseDate }}</p>
+  </div>
 </template>
 
 <script>
@@ -20,6 +22,16 @@ export default {
       default: ''
     },
     releaseDate: {
+      type: String,
+      required: true,
+      default: ''
+    },
+    mediaId: {
+      type: Number,
+      required: true,
+      default: ''
+    },
+    mediaType: {
       type: String,
       required: true,
       default: ''
