@@ -1,10 +1,10 @@
 <template>
   <div class="media-details">
-    <img :src="`${backDropURL}`" alt="" class="media-backdrop">
+    <img :src="backDropURL" alt="" class="media-backdrop">
     <div class="media-backdrop-overlay">
-    <h1 class="media-title">{{ title }}</h1>
-    <h4 class="media-description">{{ description }}</h4>
-    <p class="media-rating">{{ rating }} / 10</p>
+      <h1 class="media-title">{{ title }}</h1>
+      <p class="media-rating">{{ rating }} / 10</p>
+      <p class="media-description">{{ description }}</p>
     </div>
   </div>
 </template>
@@ -15,13 +15,12 @@ import { mediaTypes } from '~/constants/mediaTypes';
 export default {
   data() {
     return {
-      title: null,
-      description: null,
+      title: '',
+      description: '',
       genres: [],
-      releaseDate: null,
-      rating: null,
+      rating: '',
       languages: [],
-      backDropURL: null,
+      backDropURL: '',
       mediaTypes: mediaTypes
     }
   },
@@ -36,7 +35,6 @@ export default {
                         for(var genre in response.data.genres) {
                           this.genres.push(genre.name);
                         }
-                        this.releaseDate = response.data.release_date;
                         this.rating = response.data.vote_average;
                         for(var language in response.data.spoken_languages) {
                           this.languages.push(language.name);
@@ -62,36 +60,39 @@ export default {
 </script>
 
 <style scoped>
+.media-details {
+    position: relative;
+    z-index: 0;
+}
 .media-backdrop {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    opacity: 0.6;
+    width: 100%;
+    object-fit: cover;
+    z-index: -5;
 }
 .media-backdrop-overlay {
-  background-image: linear-gradient(to right, black, transparent, transparent);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 4rem 0 0 2rem;
+    background-image: linear-gradient(to right, black, transparent, transparent);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 1rem 0 4rem;
 }
 .media-title {
-  font-weight: 900;
-  font-size: 2rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    font-weight: 900;
+    font-size: 3.5rem;
 }
 .media-description {
-  font-weight: 00;
-  font-size: 1.5rem;
-  white-space: wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    max-width: 900px;
+}
+@media only screen and (max-width: 960px) {
+    .media-backdrop-overlay {
+        padding: 1rem;
+    }
 }
 </style>
