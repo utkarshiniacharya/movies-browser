@@ -28,6 +28,8 @@
             :value="movie.vote_average / 2"
             :dense="true"
           />
+          <br/>
+          <p class="media-description">{{ movie.overview }}</p>
           <br />
           <NuxtLink :to="'/' + mediaTypes.movie + '/' + movie.id">
             <button class="view-btn">
@@ -65,6 +67,8 @@
             :value="tvshow.vote_average / 2"
             :dense="true"
           />
+          <br/>
+          <p class="media-description">{{ tvshow.overview }}</p>
           <br />
           <NuxtLink :to="'/' + mediaTypes.tv + '/' + tvshow.id">
             <button class="view-btn">
@@ -119,6 +123,9 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.media-description {
+  display: none;
+}
 .view-btn {
   background-color: white;
   color: black;
@@ -129,14 +136,24 @@ export default {
 @media only screen and (max-width: 960px) {
   .backdrop {
     height: unset;
+    position: unset;
+    margin-bottom: 2rem;
   }
   .backdrop-overlay {
+    background-image: unset;
     height: unset;
+    padding: 1rem;
+  }
+  .media-description {
+    display: unset;
   }
   .trending-heading {
     font-size: 1rem;
   }
   .backdrop-name {
+    white-space: unset;
+    overflow: unset;
+    text-overflow: unset;
     font-size: 1.5rem;
   }
   .view-btn {

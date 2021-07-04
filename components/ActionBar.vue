@@ -29,11 +29,16 @@ export default {
 }
 </script>
 <style scoped>
-.search-bar .v-input__control{
-  margin-top: 8px;
-}
 .action-bar {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+}
+.search-bar .v-input__control{
+  margin-top: 8px;
+}
+@media only screen and (max-width: 960px) {
+  .action-bar {
+    position: sticky;
+  }
 }
 </style>
