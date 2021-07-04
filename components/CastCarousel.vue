@@ -5,7 +5,8 @@
     </v-btn>
     <div class="container" :id="carouselId">
       <div class="card" v-for="cast in castList" :key="cast.id">
-        <img :src="`https://image.tmdb.org/t/p/original${cast.profile_path}`" alt="No image available." class="poster">
+        <img :src="`https://image.tmdb.org/t/p/original${cast.profile_path}`" alt="No image available." class="poster" v-if="cast.profile_path !== null">
+        <div class="null-poster" v-else />
         <h3 class="cast-name">{{ cast.original_name }}</h3>
       </div>
     </div>
@@ -72,8 +73,14 @@ export default {
     border-radius: 5%;
     height: 250px;
     width: 170px;
-    z-index: -1;
     object-fit: cover;
+}
+.null-poster {
+    border-radius: 5%;
+    height: 250px;
+    width: 170px;
+    background-color: gray;
+    opacity: 0.3;
 }
 .cast-name {
   font-weight: 600;

@@ -38,7 +38,9 @@
     <div class="more-details">
       <h1 class="heading-name">Summary</h1>
       <div class="name-stroke" />
-        <p class="media-description">{{ description }}</p>
+      <p class="media-description">{{ description }}</p>
+      <h1 class="heading-name">Cast</h1>
+      <div class="name-stroke" />
       <cast-carousel carouselId="cast-carousel-id" :castList="castList"/>
     </div>
   </div>
@@ -149,9 +151,12 @@ export default {
     margin: 3rem 0;
 }
 .name-stroke {
-  background-color: white;
-  width: 2.5rem;
-  height: 5px;
+    background-color: white;
+    width: 2.5rem;
+    height: 3px;
+}
+.heading-name {
+    margin-top: 2rem;
 }
 @media only screen and (max-width: 960px) {
     .media-backdrop-overlay {
