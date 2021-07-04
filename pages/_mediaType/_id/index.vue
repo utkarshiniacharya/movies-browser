@@ -3,6 +3,22 @@
     <img :src="backDropURL" alt="" class="media-backdrop">
     <div class="media-backdrop-overlay">
       <h1 class="media-title">{{ title }}</h1>
+      <div class="media-genres">
+        <span
+          v-for="genre in genres" :key="genre"
+        >
+          <v-chip
+            class="ma-2"
+            color="purple accent-2"
+            label
+            outlined
+          >
+            {{ genre }}
+          </v-chip>
+          &nbsp;
+        </span>
+      </div>
+      <br>
       <p class="media-rating">{{ rating }} / 10</p>
       <p class="media-description">{{ description }}</p>
     </div>
@@ -19,7 +35,6 @@ export default {
       description: '',
       genres: [],
       rating: '',
-      languages: [],
       backDropURL: '',
       mediaTypes: mediaTypes
     }
@@ -32,13 +47,10 @@ export default {
                     if(this.$route.params.mediaType == this.mediaTypes.movie) {
                         this.title = response.data.original_title;
                         this.description = response.data.overview;
-                        for(var genre in response.data.genres) {
-                          this.genres.push(genre.name);
+                        for(var index in response.data.genres) {
+                          this.genres.push(response.data.genres[index].name);
                         }
                         this.rating = response.data.vote_average;
-                        for(var language in response.data.spoken_languages) {
-                          this.languages.push(language.name);
-                        }
                         this.backDropURL = "https://image.tmdb.org/t/p/original" + response.data.backdrop_path;
                         this.posterPath = "https://image.tmdb.org/t/p/original" + response.data.poster_path;
                     }
@@ -75,7 +87,7 @@ export default {
     z-index: -5;
 }
 .media-backdrop-overlay {
-    background-image: linear-gradient(to right, black, transparent, transparent);
+    background-image: linear-gradient(to right, black, black, transparent, transparent);
     height: 100vh;
     width: 100%;
     display: flex;
@@ -89,6 +101,9 @@ export default {
 }
 .media-description {
     max-width: 900px;
+}
+.media-genres {
+    font-weight: 600;
 }
 @media only screen and (max-width: 960px) {
     .media-backdrop-overlay {
