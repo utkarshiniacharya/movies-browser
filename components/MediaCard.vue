@@ -2,7 +2,7 @@
     <div class="card">
         <img :src="`https://image.tmdb.org/t/p/original${posterPath}`" alt="No image available." class="poster">
         <h3 class="media-name">{{ cardTitle}}</h3>
-        <p class="release-date">19-06-2018</p>
+        <p class="release-date">{{ releaseDate }}</p>
     </div>
 </template>
 
@@ -15,6 +15,11 @@ export default {
       default: 'Title'
     },
     posterPath: {
+      type: String,
+      required: true,
+      default: ''
+    },
+    releaseDate: {
       type: String,
       required: true,
       default: ''
