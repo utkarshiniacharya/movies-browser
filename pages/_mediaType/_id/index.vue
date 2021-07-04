@@ -38,14 +38,14 @@
     <div class="more-details">
       <h1 class="heading-name">Summary</h1>
       <div class="name-stroke" />
-      <span>
         <p class="media-description">{{ description }}</p>
-      </span>
+      <cast-carousel carouselId="cast-carousel-id" :castList="castList"/>
     </div>
   </div>
 </template>
 
 <script>
+import CastCarousel from '~/components/CastCarousel.vue';
 import { mediaTypes } from '~/constants/mediaTypes';
 
 export default {
@@ -56,8 +56,12 @@ export default {
       genres: [],
       rating: 0,
       backDropURL: '',
-      mediaTypes: mediaTypes
+      mediaTypes: mediaTypes,
+      castList: []
     }
+  },
+  components: {
+    CastCarousel
   },
   methods: {
       fetchMediaDetails() {
@@ -82,10 +86,23 @@ export default {
                     reject(error)
                 })
         });
+      },
+      fetchCastDetails() {
+        return new Promise((resolve, reject) => {
+          this.$axios.get("/3/" + this.$route.params.mediaType + "/" + this.$route.params.id + "/credits?api_key=" + process.env.tmdbAPIKey + "&language=en-US&page=1")
+            .then(response => {
+              this.castList = response.data.cast;
+              resolve(response.data);
+            })
+            .catch(error => {
+              reject(error)
+            })
+        });
       }
   },
   created() {
     this.fetchMediaDetails();
+    this.fetchCastDetails();
   }
 }
 </script>

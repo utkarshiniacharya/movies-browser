@@ -4,11 +4,9 @@
       <v-icon>mdi-chevron-left</v-icon>
     </v-btn>
     <div class="container" :id="carouselId">
-      <div class="cast-card" v-for="cast in castList" :key="cast.id">
-        <div class="card">
-          <img :src="`https://image.tmdb.org/t/p/original${profile_path}`" alt="No image available." class="poster">
-          <h3 class="cast-name">{{ cast.original_name }}</h3>
-        </div>
+      <div class="card" v-for="cast in castList" :key="cast.id">
+        <img :src="`https://image.tmdb.org/t/p/original${cast.profile_path}`" alt="No image available." class="poster">
+        <h3 class="cast-name">{{ cast.original_name }}</h3>
       </div>
     </div>
     <v-btn fab @click="handleScroll('right')">
@@ -65,5 +63,23 @@ export default {
 }
 .container::-webkit-scrollbar {
     display: none;
+}
+.card {
+    margin: 0.5rem;
+    width: 170px;
+}
+.poster {
+    border-radius: 5%;
+    height: 250px;
+    width: 170px;
+    z-index: -1;
+    object-fit: cover;
+}
+.cast-name {
+  font-weight: 600;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
