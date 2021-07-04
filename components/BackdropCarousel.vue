@@ -29,7 +29,7 @@
             :dense="true"
           />
           <br/>
-          <p class="media-description">{{ movie.overview }}</p>
+          <p class="media-description">{{ truncateString(movie.overview, 280) }}</p>
           <br />
           <NuxtLink :to="'/' + mediaTypes.movie + '/' + movie.id">
             <button class="view-btn">
@@ -68,7 +68,7 @@
             :dense="true"
           />
           <br/>
-          <p class="media-description">{{ tvshow.overview }}</p>
+          <p class="media-description">{{ truncateString(tvshow.overview, 280) }}</p>
           <br />
           <NuxtLink :to="'/' + mediaTypes.tv + '/' + tvshow.id">
             <button class="view-btn">
@@ -94,6 +94,14 @@ export default {
   },
   computed: {
     ...mapGetters(['mediaTypeSelected', 'trendingMovies', 'trendingTVShows'])
+  },
+  methods: {
+    truncateString(stringToTruncate, truncateLength) {
+      if (stringToTruncate.length > truncateLength) {
+        return stringToTruncate.substring(0, truncateLength) + '...';
+      }
+      return stringToTruncate;
+    }
   }
 };
 </script>
