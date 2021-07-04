@@ -19,7 +19,6 @@
         </span>
       </div>
       <br>
-      <p class="media-rating">{{ rating }} / 10</p>
       <v-rating
         class="media-rating"
         background-color="warning lighten-1"
