@@ -28,7 +28,7 @@ export default {
 
 }
 </script>
-<style>
+<style scoped>
 .search-bar .v-input__control{
   margin-top: 8px;
 }
