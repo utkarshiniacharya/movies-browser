@@ -14,7 +14,21 @@
         <div class="backdrop-overlay">
           <h2 class="trending-heading">Trending</h2>
           <h1 class="backdrop-name">{{ movie.original_title }}</h1>
-          <p class="backdrop-rating">{{ movie.vote_average }} / 10</p>
+          <v-rating
+            class="media-rating"
+            background-color="warning lighten-1"
+            color="warning"
+            empty-icon="mdi-star-outline"
+            full-icon="mdi-star"
+            half-icon="mdi-star-half-full"
+            half-increments
+            length="5"
+            readonly
+            size="15"
+            :value="movie.vote_average / 2"
+            :dense="true"
+          />
+          <br />
           <NuxtLink :to="'/' + mediaTypes.movie + '/' + movie.id">
             <button class="view-btn">
               View More
@@ -37,7 +51,21 @@
         <div class="backdrop-overlay">
           <h2 class="trending-heading">Trending</h2>
           <h1 class="backdrop-name">{{ tvshow.original_name }}</h1>
-          <p class="backdrop-rating">{{ tvshow.vote_average }} / 10</p>
+          <v-rating
+            class="media-rating"
+            background-color="warning lighten-1"
+            color="warning"
+            empty-icon="mdi-star-outline"
+            full-icon="mdi-star"
+            half-icon="mdi-star-half-full"
+            half-increments
+            length="5"
+            readonly
+            size="15"
+            :value="tvshow.vote_average / 2"
+            :dense="true"
+          />
+          <br />
           <button class="view-btn">
             View More
           </button>

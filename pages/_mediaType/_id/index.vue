@@ -20,6 +20,22 @@
       </div>
       <br>
       <p class="media-rating">{{ rating }} / 10</p>
+      <v-rating
+        class="media-rating"
+        background-color="warning lighten-1"
+        color="warning"
+        empty-icon="mdi-star-outline"
+        full-icon="mdi-star"
+        half-icon="mdi-star-half-full"
+        half-increments
+        length="5"
+        readonly
+        size="15"
+        :value="rating"
+        :dense="true"
+      />
+    </div>
+    <div>
       <p class="media-description">{{ description }}</p>
     </div>
   </div>
@@ -34,7 +50,7 @@ export default {
       title: '',
       description: '',
       genres: [],
-      rating: '',
+      rating: 0,
       backDropURL: '',
       mediaTypes: mediaTypes
     }
@@ -50,7 +66,7 @@ export default {
                         for(var index in response.data.genres) {
                           this.genres.push(response.data.genres[index].name);
                         }
-                        this.rating = response.data.vote_average;
+                        this.rating = response.data.vote_average / 2;
                         this.backDropURL = "https://image.tmdb.org/t/p/original" + response.data.backdrop_path;
                         this.posterPath = "https://image.tmdb.org/t/p/original" + response.data.poster_path;
                     }
@@ -81,13 +97,12 @@ export default {
     top: 0;
     left: 0;
     height: 100vh;
-    opacity: 0.6;
+    opacity: 0.3;
     width: 100%;
     object-fit: cover;
     z-index: -5;
 }
 .media-backdrop-overlay {
-    background-image: linear-gradient(to right, black, black, transparent, transparent);
     height: 100vh;
     width: 100%;
     display: flex;
