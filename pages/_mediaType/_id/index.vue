@@ -109,5 +109,8 @@ export default {
     .media-backdrop-overlay {
         padding: 1rem;
     }
+    .media-title {
+        font-size: 2.5rem
+    }
 }
 </style>
