@@ -6,8 +6,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - movies-browser',
-    title: 'movies-browser',
+    titleTemplate: 'MovieTV Browser',
+    title: 'MovieTV Browser',
     htmlAttrs: {
       lang: 'en'
     },
