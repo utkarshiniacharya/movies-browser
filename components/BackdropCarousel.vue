@@ -31,7 +31,7 @@
           <br/>
           <p class="media-description">{{ truncateString(movie.overview, 280) }}</p>
           <br />
-          <NuxtLink :to="'/' + mediaTypes.movie + '/' + movie.id">
+          <NuxtLink :to="'/media/' + mediaTypes.movie + '/' + movie.id">
             <button class="view-btn">
               View More
             </button>
@@ -70,7 +70,7 @@
           <br/>
           <p class="media-description">{{ truncateString(tvshow.overview, 280) }}</p>
           <br />
-          <NuxtLink :to="'/' + mediaTypes.tv + '/' + tvshow.id">
+          <NuxtLink :to="'/media/' + mediaTypes.tv + '/' + tvshow.id">
             <button class="view-btn">
               View More
             </button>

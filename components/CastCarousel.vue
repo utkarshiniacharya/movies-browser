@@ -5,8 +5,10 @@
     </v-btn>
     <div class="container" :id="carouselId">
       <div class="card" v-for="cast in castList" :key="cast.id">
-        <img :src="`https://image.tmdb.org/t/p/original${cast.profile_path}`" alt="No image available." class="poster" v-if="cast.profile_path !== null">
-        <div class="null-poster" v-else />
+        <NuxtLink :to="'/person/' + cast.id">
+          <img :src="`https://image.tmdb.org/t/p/original${cast.profile_path}`" alt="No image available." class="poster" v-if="cast.profile_path !== null">
+          <div class="null-poster" v-else />
+        </NuxtLink>
         <h3 class="cast-name">{{ cast.original_name }}</h3>
       </div>
     </div>

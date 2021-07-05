@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <NuxtLink :to="'/' + mediaType + '/' + mediaId">
+    <NuxtLink :to="'/media/' + mediaType + '/' + mediaId">
       <img :src="`https://image.tmdb.org/t/p/original${posterPath}`" alt="No image available." class="poster" v-if="posterPath !== null">
       <div class="null-poster" v-else />
     </NuxtLink>
