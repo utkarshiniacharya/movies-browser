@@ -5,11 +5,11 @@
     </v-btn>
     <div class="container" :id="carouselId">
       <div class="card" v-for="cast in castList" :key="cast.id">
-        <NuxtLink :to="'/person/' + cast.id">
-          <img :src="`https://image.tmdb.org/t/p/original${cast.profile_path}`" alt="No image available." class="poster" v-if="cast.profile_path !== null">
-          <div class="null-poster" v-else />
-        </NuxtLink>
-        <h3 class="cast-name">{{ cast.original_name }}</h3>
+        <cast-card
+          :personId="cast.id"
+          :posterPath="cast.profile_path"
+          :personName="cast.original_name"
+        />
       </div>
     </div>
     <v-btn fab @click="handleScroll('right')">
@@ -20,8 +20,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import CastCard from './CastCard.vue';
 
 export default {
+  components: { CastCard },
   props: {
     castList: {
       type: Array,

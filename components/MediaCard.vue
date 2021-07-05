@@ -4,7 +4,7 @@
       <img :src="`https://image.tmdb.org/t/p/original${posterPath}`" alt="No image available." class="poster" v-if="posterPath !== null">
       <div class="null-poster" v-else />
     </NuxtLink>
-    <h3 class="media-name">{{ cardTitle}}</h3>
+    <h3 class="media-name">{{ cardTitle }}</h3>
     <p class="release-date">{{ releaseDate }}</p>
   </div>
 </template>
